@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --black: #24292f;
+    --light: #ffffff;
+    --silver:#f1f2f3;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+a, a:hover{
+    text-decoration: none;
+    color: unset;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+button{
+    border: none;
+    background: unset;
+}
+
+.msg-success{
+    background:#0b571d;
+    opacity: 0.6;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #FFF;
+}
+
+.msg-error{
+    background: darkred;
+    color: #FFF;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

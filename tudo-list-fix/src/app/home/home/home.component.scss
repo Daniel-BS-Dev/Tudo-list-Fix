@@ -1,0 +1,247 @@
+@media screen and (min-width:320px){
+  .home-container {
+    padding: 10px;
+  }
+  
+  .home-content {
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background: #ffffff;
+  }
+  
+  .home-logo img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .home-welcome {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .home-welcome h1 {
+    min-width: 100%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 26px;
+    line-height: 35px;
+    color: #263238;
+    margin-top: 40px;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    
+    
+  }
+
+  .home-welcome h1 span{
+    display: none;
+  }
+  
+  .home-welcome p {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #9e9e9e;
+    padding-bottom: 30px;
+  }
+
+  .container-button{
+    height: 50px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+  }
+
+  .container-button button{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black);
+  }
+
+  .container-button button:nth-child(1){
+    text-transform: uppercase;
+    font-weight: 900;
+    flex: 1;
+    color: #ffffff;
+    border-radius: 4px 0px 0px 4px;
+  }
+
+  .container-button button:nth-child(2){
+    width: 20%;
+    border-radius: 0px 4px 4px 0px;
+    opacity: 0.9;
+  }
+
+  .container-button:hover{
+    box-shadow: 5px 5px 5px #263238;
+    transform: scale(1.1, 1.1);
+    color: #eee;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width:576px) {
+  .home-image {
+    margin-bottom: 50px;
+  }
+
+  .home-logo img {
+    width: 450px;
+  }
+
+  .home-welcome h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .home-welcome p {
+    width: 350px;
+    font-size: 20px;
+    line-height: 27px;
+    padding-bottom: 30px;
+  }
+
+  .container-button{
+    width: 60%;
+    
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-welcome h1 {
+    font-size: 35px;
+    line-height: 45px;
+    letter-spacing: -0.015em;
+    color: #263238;
+    margin-top: 60px;
+  }
+
+  .home-welcome p {
+    width: 450px;
+    font-size: 23px;
+    line-height: 28px;
+  }
+
+  .container-button{
+    width: 49%;
+    min-height: 55px;
+  }
+
+}
+
+@media screen and (min-width:992px) {
+  .home-container {
+    min-height: calc(100vh - 70px);
+    padding: 20px;
+  
+    
+  }
+
+  .home-content {
+    min-height: calc(100vh - 117px);
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 30px 0px 50px 50px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    
+  }
+
+  .home-logo{
+    min-height: calc(90vh - 170px);
+    
+  }
+
+  .home-logo img {
+    flex: 1;
+    min-height: calc(90vh - 170px);
+    
+  }
+
+  .home-welcome {
+    width: 500px;
+    padding: 0px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+  }
+
+  .home-welcome h1 {
+    width: 90%;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: justify;
+    margin-top: 60px;
+  }
+
+  .home-welcome p {
+    width: 100%;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: justify;
+    padding-bottom: 40px;
+  }
+
+  .container-button{
+    width: 75%;
+    height: 60px;
+    margin-top: 30px;
+    
+  }
+ 
+}
+
+@media screen and (min-width: 1200px) {
+  .home-logo {
+    flex: 1;
+    margin-left: 20px;
+  
+  }
+
+  .home-welcome {
+    width: 600px;
+    padding: 0px 50px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  
+  }
+
+  .home-logo img{
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .home-welcome h1 {
+    width: 90%;
+    font-size: 45px;
+    line-height: 65px;
+    text-align: justify;
+    margin-top: 40px;
+  }
+
+  .home-welcome p {
+    font-size: 24px;
+    line-height: 33px;
+    padding-bottom: 30px;
+  }
+
+ 
+}

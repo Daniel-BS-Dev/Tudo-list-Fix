@@ -1,0 +1,60 @@
+<section>
+  <article class="content-add" [class.hide]="addTask == false">
+    <span
+      class="material-icons-outlined"
+      title="Adicione uma nova tarefa"
+      (click)="onAddTask()"
+    >
+      add
+    </span>
+    <p title="Adicione uma nova tarefa" (click)="onAddTask()">
+      Adicionar uma tarefa
+    </p>
+  </article>
+  <article class="container-add" [class.show]="addTask == false">
+    <form (ngSubmit)="newTask()">
+      <div class="container-title-date">
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="task.title"
+          placeholder="TÍTULO DA TAREFA"
+          autofocus
+        />
+        <div class="div-buttons">
+          <div class="container-calendar">
+            <div class="calendar">
+              <input
+                type="datetime-local"
+                name="date"
+                [(ngModel)]="task.date"
+              />
+              <span class="material-icons-outlined image">
+                calendar_month
+              </span>
+            </div>
+          </div>
+         
+        </div>
+        <div *ngIf="hasDate == ''" class="textarea-vazio">Preencha o Campo Data</div>
+      </div>
+      <textarea
+        name="text"
+        [(ngModel)]="task.text"
+        cols="15"
+        rows="3"
+        placeholder="ESCREVA AQUI..."
+        class="form-control input-text"
+      ></textarea>
+      <div *ngIf="isEmpty == ''" class="textarea-vazio">Esse campo é obrigatório!</div>
+      <div class="container-send-value">
+        <input
+          type="submit"
+          class="btn btn-primary button-submit"
+          value="Adicionar"
+        />
+      </div>
+    </form>
+  </article>
+</section>
