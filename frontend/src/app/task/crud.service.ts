@@ -4,7 +4,6 @@ import { Observable, map, take, BehaviorSubject } from 'rxjs';
 import { MyTask, MyTasks } from './models/task';
 import { environment } from './../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

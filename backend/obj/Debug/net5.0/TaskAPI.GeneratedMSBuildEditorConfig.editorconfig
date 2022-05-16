@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = TaskAPI
-build_property.ProjectDir = C:\workspace\tudo-list-fix\TaskAPI\
+build_property.ProjectDir = C:\workspace\tudo-list-fix\backend\

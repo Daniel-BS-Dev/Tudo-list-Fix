@@ -1,4 +1,4 @@
-<section *ngIf="taskList$ | async as tasks">
+<section *ngIf="taskList$ | async as tasks; else loading">
   <article *ngFor="let task of tasks" class="container-task">
     <article class="div-text">
       <div class="container-button-mark">
@@ -13,7 +13,9 @@
         <div *ngIf="task.isMark == true">desmarcar tarefa</div>
       </div>
       <div class="div-info-form" [class.background-green]="task.isMark == true">
-        <div><h3 [class.text-through]="task.isMark == true">{{ task.title }}</h3></div>
+        <div>
+          <h3 [class.text-through]="task.isMark == true">{{ task.title }}</h3>
+        </div>
         <p [class.text-through]="task.isMark == true">{{ task.text }}</p>
         <div class="div-date">
           <i>{{ task.date | date: "short" }}</i>
@@ -37,3 +39,9 @@
     </article>
   </article>
 </section>
+
+<ng-template #loading>
+  <div class="loading">
+    <h4>Carregando...</h4>
+  </div>
+</ng-template>

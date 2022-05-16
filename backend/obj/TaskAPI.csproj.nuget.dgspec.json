@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\workspace\\tudo-list-fix\\TaskAPI\\TaskAPI.csproj": {}
+    "C:\\workspace\\tudo-list-fix\\backend\\TaskAPI.csproj": {}
   },
   "projects": {
-    "C:\\workspace\\tudo-list-fix\\TaskAPI\\TaskAPI.csproj": {
+    "C:\\workspace\\tudo-list-fix\\backend\\TaskAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace\\tudo-list-fix\\TaskAPI\\TaskAPI.csproj",
+        "projectUniqueName": "C:\\workspace\\tudo-list-fix\\backend\\TaskAPI.csproj",
         "projectName": "TaskAPI",
-        "projectPath": "C:\\workspace\\tudo-list-fix\\TaskAPI\\TaskAPI.csproj",
+        "projectPath": "C:\\workspace\\tudo-list-fix\\backend\\TaskAPI.csproj",
         "packagesPath": "C:\\Users\\daniel.silva\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\tudo-list-fix\\TaskAPI\\obj\\",
+        "outputPath": "C:\\workspace\\tudo-list-fix\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\daniel.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",

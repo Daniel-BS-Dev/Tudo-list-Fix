@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JV2He7Li102RbkqfLfaBuiuekxn5TFc/AHACszuH7qhJ1dsNG8oBwZv/RkafDK3uEIWKimFkMjIiwtT2Ur4ofQ==",
+  "dgSpecHash": "Kq+fUuKdC0d7FWHwS0zIafsmuB8WKddc3/2Z/1NWDb9S+U0qTjVuppX8qabA5BRRnO5JgJje7pzb6kMhiUIs1g==",
   "success": true,
-  "projectFilePath": "C:\\workspace\\tudo-list-fix\\TaskAPI\\TaskAPI.csproj",
+  "projectFilePath": "C:\\workspace\\tudo-list-fix\\backend\\TaskAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daniel.silva\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\daniel.silva\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
