@@ -1,7 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+import { Observable, switchMap } from 'rxjs';
 import { CrudService } from '../crud.service';
-import { Component, OnInit, Output } from '@angular/core';
-import { MarkService } from '../mark-tasks/mark.service';
-import { MyTask } from '../models/task';
+import { MyTask, MyTasks } from '../models/task';
 
 @Component({
   selector: 'app-view-new-task',
@@ -9,40 +9,31 @@ import { MyTask } from '../models/task';
   styleUrls: ['./view-new-task.component.scss'],
 })
 export class ViewNewTaskComponent implements OnInit {
-  task: MyTask;
-  listTask: MyTask[] = [];
+  taskList$!: Observable<MyTasks>;
 
-  constructor(private service: CrudService, private serviceMarkTask: MarkService) {
-    this.task = {
-      id: 0,
-      title: 'Sem título',
-      text: '',
-      isMark: false,
-      date: '',
-    };
-  }
+  constructor(private service: CrudService) {}
 
   ngOnInit(): void {
-    this.service.read().subscribe((task: MyTask[]) => {
-      this.listTask = task;
-    });
+    this.taskList$ = this.service.refresh$.pipe(
+      switchMap(() => this.service.findAll())
+    );
   }
 
-  deleteTask(id: number): void {
-    const deleteProduct = window.confirm(`Deletar Produto de id ${id}`);
+  deleteTask(task: MyTask): void {
+    const title = task.title.toUpperCase();
+    const deleteTask = window.confirm(`Deletar A Tarefa de título (${title})`);
 
-    if (!deleteProduct) {
+    if (!deleteTask) {
       return;
     }
-    this.service.delete((this.task.id = id)).subscribe(() => {
-      this.service.showMessage("Tarefa Deletada");
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
+
+    this.service.delete(task.id!).subscribe(() => {
+      this.service.showMessage('Tarefa Deletada');
+      this.service.refresh$.next(true);
     });
   }
 
-  onIsMark(isMark: boolean, id: number) {
-    this.serviceMarkTask.onIsMark(isMark, id, this.listTask);
+  onIsMark(task: MyTask) {
+    this.service.onIsMark(task);
   }
 }

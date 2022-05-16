@@ -2,6 +2,7 @@
   .content-add {
     width: 100%;
     display: flex;
+    align-items: center;
     padding: 15px 5px;
     background: #e5e5e5;
     box-shadow: 1px 1px 4px #000;
@@ -10,14 +11,14 @@
     margin-bottom: 20px;
     border: 1px solid #000;
     opacity: 0.8;
-    
+  
   }
 
   .content-add p {
     margin: 0px;
-    padding-left: 5px;
+    padding-left: 3px;
     text-transform: uppercase;
-
+    
   }
 
   .content-add p:hover,
@@ -38,11 +39,25 @@
   .container-title-date {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 7px 14px;
+  }
+
+  .title {
+    flex: 1;
+  }
+
+  .invalidDate {
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
+    padding: 10px;
   }
 
   .div-buttons {
-    width: 50px;
+    min-width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,28 +118,20 @@
     text-transform: uppercase;
   }
 
-  .input-text{
+  .input-text {
     margin-top: 20px;
-  
-  }
-
-  .textarea-vazio{
-    color: red;
   }
 }
 @media screen and (min-width: 576px) {
   .content-add {
     padding: 15px;
-  
-    
   }
 
   .container-add {
     padding: 15px 10px;
-    
   }
 
-  .container-add{
+  .container-add {
     margin: 0px;
   }
 
@@ -151,8 +158,6 @@
   }
 }
 
-
-
 /* classe de uso externo */
 .hide {
   display: none;
@@ -162,4 +167,3 @@
   display: block;
   flex: 1;
 }
-

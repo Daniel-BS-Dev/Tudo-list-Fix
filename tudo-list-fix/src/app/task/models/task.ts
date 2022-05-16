@@ -5,4 +5,8 @@ export interface MyTask {
     text: string,
     isMark: boolean,
     date?: string,
-  }
+}
+
+export interface MyTasks extends Array<MyTask>{}
+
+

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NavService } from './nav.service';
 
@@ -16,7 +17,7 @@ export class NavComponent implements OnInit {
   time = Date.now();
   
 
-  constructor(private service: NavService) {
+  constructor(private service: NavService, private router: Router) {
     
   }
 
@@ -28,5 +29,6 @@ export class NavComponent implements OnInit {
     this.showMenu = this.service.onShowMenu();
     this.hideMenu = !this.hideMenu;
   }
+
 
 }

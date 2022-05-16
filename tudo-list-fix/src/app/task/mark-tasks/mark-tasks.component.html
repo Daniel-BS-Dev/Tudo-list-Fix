@@ -1,16 +1,26 @@
-<section *ngIf="listTask.length > 0">
+<section *ngIf="taskList$ | async as tasks">
   <article class="container-marked-tasks">
     <div class="container-title-marked-tasks"><h1>tarefas marcadas</h1></div>
-    <article *ngFor="let task of listTask">
-      <div class="content-marked-tasks" *ngIf="task.isMark == true">
-        <div class="container-header-marked-task" (click)="onIsMark(task.isMark!, task.id!)" >
+    <article *ngFor="let task of tasks">
+      <div
+        class="content-marked-tasks"
+        *ngIf="tasks.length > 0 && task.isMark == true"
+      >
+        <div class="container-header-marked-task" (click)="onIsMark(task)">
           <div>
-            <strong class="material-icons-outlined dismark-task" title="Para desmarcar a tarefa click no botão"> done </strong>
+            <strong
+              class="material-icons-outlined dismark-task"
+              title="Para desmarcar a tarefa click no botão"
+            >
+              done
+            </strong>
           </div>
           <b>Desmarcar Tarefa</b>
         </div>
         <div class="container-info-marked-tasks">
-          <h3>{{ task.title }}</h3>
+          <div >
+            <h3>{{ task.title }}</h3>
+          </div>
           <p>{{ task.text }}</p>
           <div>
             <i>{{ task.date | date: "short" }}</i>
@@ -21,8 +31,3 @@
   </article>
 </section>
 
-<section>
-  <article class="container-marked-tasks" >
-   
-  </article>
-</section>

@@ -1,32 +1,32 @@
 <section class="container-update">
   <button class="button-cancel" (click)="cancel()">X</button>
   <article class="content">
-    <form (ngSubmit)="updateTask()">
+    <form #form="ngForm" [formGroup]="task" (ngSubmit)="onSubmit()">
       <div class="div-input-date">
         <input
         type="text"
         class="form-control"
-        name="title"
-        [(ngModel)]="task.title"
+        formControlName="title"
         placeholder="Título da Tarefa"
-        autofocus
+    
       />
       <div class="calendar">
         <input type="datetime-local" 
-        name="date" 
-        [(ngModel)]="task.date" />
+        formControlName="date" />
         <span class="material-icons-outlined image"> calendar_month </span>
       </div>
       </div>
       <div class="send-value">
         <textarea
-          name="text"
-          [(ngModel)]="task.text"
+        formControlName="text"
           cols="15"
           rows="3"
           class="form-control input-text"
         ></textarea>
-        <div *ngIf="task.text == ''" class="isEmpty">Esse campo não deve ser vazio!</div>
+        <div 
+        *ngIf="text.invalid && form.submitted"
+        class="alert alert-danger"
+        ><p *ngIf="text.errors?.['required']">Campo não pode ser vazio</p></div>
       </div>
        <input
         mat-raised-button
@@ -34,10 +34,7 @@
         value="salvar"
         class="btn btn-primary"
       />
-     
-      <!--
-         <button  mat-raised-button (click)="updateTask()" >Atualizar</button>
-       -->
+    
     </form>
   </article>
 </section>

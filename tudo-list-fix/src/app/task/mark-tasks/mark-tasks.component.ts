@@ -1,7 +1,8 @@
+import { MyTasks } from './../models/task';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { MyTask } from '../models/task';
-import { MarkService } from './mark.service';
 
 @Component({
   selector: 'app-mark-tasks',
@@ -10,29 +11,19 @@ import { MarkService } from './mark.service';
 })
 export class MarkTasksComponent implements OnInit {
 
-  task: MyTask;
-  listTask: MyTask[] = [];
-  
+  taskList$: Observable<MyTasks>;
 
-  constructor(private service: CrudService, private serviceMarkTask: MarkService) {
-   this.task = {
-      id: 0,
-      title: 'Sem título',
-      text: '',
-      isMark: false,
-      date: '',
-    };
+  constructor(private service: CrudService) {
+    this.taskList$ = this.service.findAll();
   }
 
   ngOnInit(): void {
-    this.service.read().subscribe((task: MyTask[]) => {
-      this.listTask = task;
-    });
+    this.taskList$;
     
   }
 
-  onIsMark(mark: boolean, id:number){
-    this.serviceMarkTask.onIsMark(mark, id, this.listTask);
-    this.service.showMessage("Tarefa Desmarcada")
+  onIsMark(task: MyTask){
+    this.service.onIsMark(task);
+  
   }
 }

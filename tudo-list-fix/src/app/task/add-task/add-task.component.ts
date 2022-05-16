@@ -1,63 +1,63 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavService } from 'src/app/component/nav/nav.service';
 import { CrudService } from '../crud.service';
-import { MyTask } from '../models/task';
 
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.scss'],
 })
-export class AddTaskComponent implements OnInit {
-
+export class AddTaskComponent {
   addTask: boolean = true;
-  isEmpty: string = 'a';
-  hasDate =  'a';
+  task: FormGroup;
 
-  task: MyTask = {
-    text: '',
-    title: '',
-    isMark: false,
-    date: '',
-  };
-
-  constructor(private service: NavService, private crudService: CrudService) {}
-
-  ngOnInit(): void {}
+  constructor(
+    private service: NavService,
+    private crudService: CrudService,
+    private formBuilder: FormBuilder
+  ) {
+    this.task = this.formBuilder.group({
+      title: [''],
+      text: ['', [Validators.required]],
+      isMark: [false],
+      date: ['', [Validators.required]],
+    });
+  }
 
   onAddTask() {
     this.addTask = this.service.onShowMenu();
   }
 
-  newTask(): void {
-    this.isEmpty = this.task.text;
-    if(this.isEmpty == ''){
-      return;
-    }
-
-    this.hasDate = String(this.task.date);
-    if (this.task.date == '') {
-      console.log('esta vazio')
-      return;
-    }
-
-      if (this.task.title == '') {
-      this.task = { ...this.task, title: 'Sem titulo' };
-    }
-
-   
-
-    this.crudService.newTask(this.task).subscribe(() => {
-      //this.crudService.showMessage("Tarefa Criada");
-      setTimeout(() => {
-        location.reload();
-      }, 500);
-    });
-    this.cleanInput();
+  get text() {
+    return this.task.get('text')!;
   }
 
-  cleanInput() {
-    this.task.text = '';
-    this.task.date = '';
+  get date() {
+    return this.task.get('date')!;
+  }
+
+  private get title() {
+    return this.task.get('title')!;
+  }
+
+  newTask(): void {
+    if (this.title?.value == '') {
+      this.title?.setValue('Sem Título');
+    }
+
+    if (this.task.valid) {
+      this.crudService.newTask(this.task.value).subscribe(() => {
+        this.crudService.showMessage('Tarefa Criada');
+        this.crudService.refresh$.next(true);
+        this.addTask = true;
+      });
+      this.resetInput();
+    }
+  }
+
+  resetInput() {
+    this.text.setValue('');
+    this.title.setValue('');
   }
 }

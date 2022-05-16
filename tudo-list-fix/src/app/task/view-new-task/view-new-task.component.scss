@@ -61,8 +61,14 @@
     
   }
 
+  .div-info-form div:nth-child(1){
+    border-bottom:1px dotted white;
+    margin-bottom: 20px;
+  }
+
   .div-info-form h3{
-    font-size: 18px;
+    margin: 0px;
+    font-size: 16px;
     text-transform: uppercase;
 
   }

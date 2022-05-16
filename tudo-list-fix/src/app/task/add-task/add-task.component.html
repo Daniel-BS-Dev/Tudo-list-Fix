@@ -12,42 +12,43 @@
     </p>
   </article>
   <article class="container-add" [class.show]="addTask == false">
-    <form (ngSubmit)="newTask()">
+    <form #form="ngForm" [formGroup]="task" (ngSubmit)="newTask()">
       <div class="container-title-date">
         <input
           type="text"
-          class="form-control"
-          name="title"
-          [(ngModel)]="task.title"
+          class="form-control title"
+          formControlName="title"
           placeholder="TÍTULO DA TAREFA"
-          autofocus
         />
         <div class="div-buttons">
           <div class="container-calendar">
             <div class="calendar">
-              <input
-                type="datetime-local"
-                name="date"
-                [(ngModel)]="task.date"
-              />
+              <input type="datetime-local" formControlName="date" required />
               <span class="material-icons-outlined image">
                 calendar_month
               </span>
             </div>
           </div>
-         
+          <div
+            *ngIf="date.invalid && form.submitted"
+            class="alert alert-danger invalidDate"
+          ><p *ngIf="date.errors?.['required']">Escolha uma data</p></div>
         </div>
-        <div *ngIf="hasDate == ''" class="textarea-vazio">Preencha o Campo Data</div>
       </div>
       <textarea
-        name="text"
-        [(ngModel)]="task.text"
+        formControlName="text"
         cols="15"
         rows="3"
         placeholder="ESCREVA AQUI..."
         class="form-control input-text"
       ></textarea>
-      <div *ngIf="isEmpty == ''" class="textarea-vazio">Esse campo é obrigatório!</div>
+      <div
+        *ngIf="text.untouched && form.submitted"
+        class="alert alert-danger"
+        role="alert"
+      >
+        <p *ngIf="text.errors?.['required']">Esse campo é obrigatório!</p>
+      </div>
       <div class="container-send-value">
         <input
           type="submit"
@@ -58,3 +59,4 @@
     </form>
   </article>
 </section>
+
